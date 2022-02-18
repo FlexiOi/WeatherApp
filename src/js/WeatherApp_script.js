@@ -55,17 +55,18 @@
   let openweathermap_key = "b80a9f2d6fa519ca9ccead159af15950";
 
   function showTemp(response) {
-    console.log(response.data);
-    console.log(response.data.main.temp);
-    console.log(response.data.weather[0].icon);
     weatherIconNumber = response.data.weather[0].icon;
     let weatherToday = response.data.main.temp;
+    letTempChange = 1;
     tempToday = Math.round(weatherToday);
     change_tempToday = document.querySelector("#tempTodayCelsius");
     change_tempToday.innerHTML = `${Math.round(weatherToday)}`;
 
     change_clickCelsius = document.querySelector("#clickCelsius");
     change_clickCelsius.classList.remove("lightgreyFont");
+
+    change_clickFahrenheit = document.querySelector("#clickFahrenheit");
+    change_clickFahrenheit.classList.add("curserPointer");
 
     change_tempFahrenheit = document.querySelector("#tempTodayFahrenheit");
 
@@ -93,36 +94,42 @@
 
 let tempToday = 0;
 let weatherIconNumber =0;
+let letTempChange = 0;
 
 
 function changeToFahrenheit()
 {
-  if (document.querySelector("#tempTodayCelsius").value != "- ") {
+  if (letTempChange != 0) {
     console.log(tempToday);
     change_tempToday = document.querySelector("#tempTodayCelsius");
     change_tempToday.innerHTML = `${Math.round((tempToday * 9/5) + 32)}`;
   
     change_clickCelsius = document.querySelector("#clickCelsius");
     change_clickCelsius.classList.add("lightgreyFont");
+    change_clickCelsius.classList.add("curserPointer");
 
     change_clickFahrenheit = document.querySelector("#clickFahrenheit");
     change_clickFahrenheit.classList.remove("lightgreyFont");
+    change_clickFahrenheit.classList.remove("curserPointer");
     
   } 
 } 
   function changeToCelsius()
 {
-  if (document.querySelector("#tempTodayCelsius").value != "- ") {
+  if (letTempChange != 0) {
     console.log(tempToday);
+ 
     change_tempToday = document.querySelector("#tempTodayCelsius");
     change_tempToday.innerHTML = `${tempToday}`;
 
   
     change_clickCelsius = document.querySelector("#clickCelsius");
     change_clickCelsius.classList.remove("lightgreyFont");
+    change_clickCelsius.classList.remove("curserPointer");
 
     change_clickFahrenheit = document.querySelector("#clickFahrenheit");
     change_clickFahrenheit.classList.add("lightgreyFont");
+    change_clickFahrenheit.classList.add("curserPointer");
     
   } 
 }

@@ -40,9 +40,9 @@ text-align: center;
 }
 .button1 {
   display: block;
-  border: 1px solid #0e60db;
-  background: #0e60db;
-  color: rgb(247, 175, 175);
+  border: 1px solid #4d91f8;
+  background: #4d91f8;
+  color: rgb(0, 0, 0);
   font-size: 16px;
   line-height: 22px;
   padding: 10px 30px;
@@ -116,6 +116,10 @@ margin-top: 5px;
 .lightgreyFont
 {
   color:rgba(12, 12, 12, 0.39);
+}
+.curserPointer
+{
+  cursor: pointer;
 }
 .capitalize
 {
