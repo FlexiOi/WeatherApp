@@ -57,11 +57,26 @@
   function showTemp(response) {
     console.log(response.data);
     console.log(response.data.main.temp);
-    change_h1 = document.querySelector("#tempToday");
-    change_h1.innerHTML = `${Math.round(response.data.main.temp)}°C - ${response.data.weather[0].description}`;
+    console.log(response.data.weather[0].icon);
+    weatherIconNumber = response.data.weather[0].icon;
+    let weatherToday = response.data.main.temp;
+    tempToday = Math.round(weatherToday);
+    change_tempToday = document.querySelector("#tempTodayCelsius");
+    change_tempToday.innerHTML = `${Math.round(weatherToday)}`;
+
+    change_clickCelsius = document.querySelector("#clickCelsius");
+    change_clickCelsius.classList.remove("lightgreyFont");
+
+    change_tempFahrenheit = document.querySelector("#tempTodayFahrenheit");
+
+    change_descriptionDay1 = document.querySelector(".day1Description");
+    change_descriptionDay1.innerHTML = `${response.data.weather[0].description} `;
+
     change_text = document.getElementById('what_city');
     change_text.innerHTML = `Weather in ${response.data.name}`;
 
+    change_icon = document.querySelector(".weatherIcon");
+    change_icon.src = `http://openweathermap.org/img/wn/${weatherIconNumber}@2x.png`;
   }
 
   function showPositionLat_Lon(position) {
@@ -76,6 +91,47 @@
     navigator.geolocation.getCurrentPosition(showPositionLat_Lon);
   }
 
+let tempToday = 0;
+let weatherIconNumber =0;
+
+
+function changeToFahrenheit()
+{
+  if (document.querySelector("#tempTodayCelsius").value != "- ") {
+    console.log(tempToday);
+    change_tempToday = document.querySelector("#tempTodayCelsius");
+    change_tempToday.innerHTML = `${Math.round((tempToday * 9/5) + 32)}`;
+  
+    change_clickCelsius = document.querySelector("#clickCelsius");
+    change_clickCelsius.classList.add("lightgreyFont");
+
+    change_clickFahrenheit = document.querySelector("#clickFahrenheit");
+    change_clickFahrenheit.classList.remove("lightgreyFont");
+    
+  } 
+} 
+  function changeToCelsius()
+{
+  if (document.querySelector("#tempTodayCelsius").value != "- ") {
+    console.log(tempToday);
+    change_tempToday = document.querySelector("#tempTodayCelsius");
+    change_tempToday.innerHTML = `${tempToday}`;
+
+  
+    change_clickCelsius = document.querySelector("#clickCelsius");
+    change_clickCelsius.classList.remove("lightgreyFont");
+
+    change_clickFahrenheit = document.querySelector("#clickFahrenheit");
+    change_clickFahrenheit.classList.add("lightgreyFont");
+    
+  } 
+}
 
   let click_button2 = document.getElementById("current_location");
   click_button2.addEventListener("click", getPosition);
+
+  let click_Celsius = document.querySelector("#clickCelsius");
+  click_Celsius.addEventListener("click", changeToCelsius);
+
+  let click_Fahrenheit = document.querySelector("#clickFahrenheit");
+  click_Fahrenheit.addEventListener("click", changeToFahrenheit);
