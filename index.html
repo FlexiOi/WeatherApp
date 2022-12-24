@@ -1,82 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>NeverWeather</title>
-  <meta charset="UTF-8" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="src/css/WeatherApp_styles.css">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/healthApp.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Friss Gesund</title>
 </head>
 
 <body>
 
-  <h1 class="headline1">NeverWeather</h1>
-  <h2 class="headline2">Your five day forecast</h2>
+    <div class="flexbox">
 
-  <div style="display: flex; justify-content:center">
-    <div class="background">
-
-
-      <div class="one">
-        <input type="text" id="get_city" placeholder="Enter a city.">
-      </div>
-      <div class="box_col">
-        <form id="search-form">
-          <div class="two">
-            <input type="submit" value="Check now" class="button1">
-          </div>
-        </form>
-        <div class="three">
-          <button class="button2" id="current_location">Current location</button>
-          <br>
-          <span class="city_phrase" id="what_city">Currently no city selected</span>
-
-
-          <br>
-          <span id="date"></span>
-        </div>
-
-        <div class="four">
-          <div class="box_row">
-            <div class="rowOne">
-              <img src="http://openweathermap.org/img/wn/01d@2x.png" class="weatherIcon" alt="?">
-            </div>
-            <div class="rowTwo">
-              <span id="today">
-                <strong> Today</strong>
-                <span id="tempTodayCelsius">- </span>
-                <span id="clickCelsius" class="lightgreyFont">°C</span>
-                <span id="tempTodayFahrenheit">/ </span>
-                <span id="clickFahrenheit" class="lightgreyFont">°F</span>
-                <div class="day1Description capitalize">-</div>
-            </div>
-          </div>
-        </div>
-        <div class="five">
-          <span id="2">day+1</span> <span id="tempDay2">/ </span>°C <span id="tempDay2">/ </span> °F
-          <br> <br>
+        <div class="flexbox_row_1">
+            <img src="src/images/logo.png" alt="">
 
         </div>
-        <div class="six">
-          <span id="3">day+2</span> <span id="tempDay3">/ </span>°C
-          <br> <br>
+        <div class="flexbox_row_2">
+            <input type="text" class="suchfeld" id="get_item" placeholder="Ich bin das Suchfeld">
+            <button class="button1" id="go">Artikel suchen</button>
+            <button id="button2">Click</button>
         </div>
-        <div class="seven">
-          <span id="4">day+3</span> <span id="tempDay4">/ </span>°C
-          <br> <br>
-        </div>
-        <div class="eight">
-          <span id="5">day+4</span> <span id="tempDay5">/ </span>°C
-        </div>
-      </div>
+
+        <div id="test">Hallo</div>
+        <span class="popup">
+            <span class="popuptext">
+                <div class="testcontainer">
+
+                    <div class="Item1_col">
+                        <div id="itemName1" class="itemName_font_padding"></div>
+                        <button class="itempicture" id="buttonItem0" onClick="javascript:test(this.id)"><img src=""
+                                id="itemIcon1" alt=""></button>
+                        <div id="itemKcal1" class="padding_top5"></div>
+                    </div>
+
+                    <div class="Item2_col ">
+                        <div id="itemName2" class="itemName_font_padding"></div>
+                        <button class="itempicture" id="buttonItem1" onClick="javascript:test(this.id)"><img src=""
+                                id="itemIcon2" alt=""></button>
+                        <div id="itemKcal2" class="padding_top5"></div>
+                    </div>
+
+                    <div class="Item3_col ">
+                        <div id="itemName3" class="itemName_font_padding"></div>
+                        <div class="itempicture"><img src="" id="itemIcon3" alt=""></div>
+                        <div id="itemKcal3" class="padding_top5"></div>
+
+                    </div>
+
+                    <div class="Item4_col ">
+                        <div id="itemName4" class="itemName_font_padding"></div>
+                        <div class="itempicture"><img src="" id="itemIcon4" alt=""></div>
+                        <div id="itemKcal4" class="padding_top5"></div>
+
+                    </div>
+
+                    <div class="Item5_col ">
+                        <div id="itemName5" class="itemName_font_padding"></div>
+                        <div class="itempicture"><img src="" id="itemIcon5" alt=""></div>
+                        <div id="itemKcal5" class="padding_top5"></div>
+
+                    </div>
+                </div>
+
+                <div class="flexbox_row_4">
+                    <button id="id_hide_popup">Suche schließen</button>
+                </div>
+            </span>
+        </span>
+
     </div>
-  </div>
-
 </body>
-<script src="src/js/WeatherApp_script.js">
+<script src="src/js/suchengine.JS"></script>
+<script src="src/js/popup.js"></script>
+<script src="src/js/strapi.js"></script>
+<script>
 
+    // Request API.
+    axios
+        .post("https://strapi.blackbox.ms/auth/local", {
+            identifier: "testnutzer",
+            password: "Meinwerk123"
+        })
+        .then((response) => {
+            // Handle success.
+            console.log("Well done!");
+            console.log("User profile", response.data.user);
+            console.log("User token", response.data.jwt);
+            localStorage.setItem("token", response.data.jwt);
+        })
+        .catch((error) => {
+            // Handle error.
+            console.log("An error occurred:", error.response);
+        });
 </script>
 
 </html>

@@ -1,0 +1,137 @@
+
+
+.suchfeld
+{
+  width: 50%;
+}
+
+.flexbox
+{
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  align-items: center;
+}
+
+.flexbox_row_3
+{
+  
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  justify-content: center;
+  background-color: gray;
+  padding-top: 2%;
+  padding-bottom:2%;
+  
+
+}
+
+.flexbox_row_4
+{
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+
+
+}
+
+.flexbox_row_2
+{
+  padding-bottom: 2%;
+}
+
+.button1
+{
+  width: auto;
+}
+
+
+.itempicture
+{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  align-items: flex-start;
+  height: 200px;
+  width: auto;
+
+}
+
+.itemName_font_padding
+{
+font-weight: bold;
+  flex: 1;
+  padding-bottom: 5px;
+}
+.padding_top5
+{
+  padding-top: 5px;
+}
+
+.Item1_col, .Item2_col, .Item3_col, .Item4_col, .Item5_col
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+ 
+}
+
+/*  Popup for search engine results*/
+
+.popup {
+  position: absolute;
+  top: 22%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+
+
+  
+  /* The actual popup */
+
+  .popuptext {
+	visibility: hidden;
+	z-index: 1;
+  }
+  
+
+  
+  /* Toggle this class - hide and show the popup */
+ .popup .fadeIn1 {
+    visibility: visible;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+  }
+
+ 
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+	from {opacity: 0;} 
+	to {opacity: 1.0;}
+  }
+  
+  @keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity:1.0 ;}
+  }
+
+  .testcontainer { 
+    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 2%;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . . .";
+    max-width: 80vw;
+    min-width: 80vw;
+  }
