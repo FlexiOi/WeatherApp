@@ -11,69 +11,64 @@
 </head>
 
 <body>
-
   <h1 class="headline1">NeverWeather</h1>
   <h2 class="headline2">Your five day forecast</h2>
-
-  <div style="display: flex; justify-content:center">
+  
+  <div style="display: flex; justify-content: center;">
     <div class="background">
-
-
       <div class="one">
         <input type="text" id="get_city" placeholder="Enter a city.">
       </div>
+      
       <div class="box_col">
         <form id="search-form">
           <div class="two">
             <input type="submit" value="Check now" class="button1">
           </div>
         </form>
+        
         <div class="three">
           <button class="button2" id="current_location">Current location</button>
           <br>
           <span class="city_phrase" id="what_city">Currently no city selected</span>
-
-
           <br>
           <span id="date"></span>
         </div>
-
+        
         <div class="four">
           <div class="box_row">
             <div class="rowOne">
               <img src="http://openweathermap.org/img/wn/01d@2x.png" class="weatherIcon" alt="?">
             </div>
             <div class="rowTwo">
-              <strong> Today</strong>
-              <span id="tempDay1">- </span>
+              <strong>Today</strong>
+              <span id="tempDay1">-</span>
               <span id="clickCelsius" class="lightgreyFont">°C</span>
               <div class="day1Description capitalizeText">-</div>
             </div>
           </div>
         </div>
+        
         <div class="five">
-          <span id="day2">day+1</span> <span id="tempDay2"> - </span>°C
-          <br> <br>
-
+          <span id="day2">day+1</span> <span id="tempDay2">-</span>°C
+          <br><br>
         </div>
         <div class="six">
-          <span id="day3">day+2</span> <span id="tempDay3"> - </span>°C
-          <br> <br>
+          <span id="day3">day+2</span> <span id="tempDay3">-</span>°C
+          <br><br>
         </div>
         <div class="seven">
-          <span id="day4">day+3</span> <span id="tempDay4"> - </span>°C
-          <br> <br>
+          <span id="day4">day+3</span> <span id="tempDay4">-</span>°C
+          <br><br>
         </div>
         <div class="eight">
-          <span id="day5">day+4</span> <span id="tempDay5"> - </span>°C
+          <span id="day5">day+4</span> <span id="tempDay5">-</span>°C
         </div>
       </div>
     </div>
   </div>
-
+  
+  <script src="src/js/WeatherApp_script.js"></script>
 </body>
-<script src="src/js/WeatherApp_script.js">
-
-</script>
 
 </html>
